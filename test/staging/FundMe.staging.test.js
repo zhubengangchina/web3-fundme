@@ -37,7 +37,7 @@ devlopmentChains.includes(network.name)
     it("fund and refund sucessfully",
         async function() {
             //make sure target reached
-            await fundMe.fund({value: ethers.parseEther("0.003")})
+            await fundMe.fund({value: ethers.parseEther("0.004")})
             //make sure window closed
             await new Promise(resolve => setTimeout(resolve, 181 * 1000))
             //make sure we can get receipt
@@ -45,7 +45,7 @@ devlopmentChains.includes(network.name)
             const reFundReceipt = await reFundTx.wait()
             expect(reFundReceipt)
             .to.be.emit(fundMe,"RefundByFunder")
-            .withArgs(ethers.parseEther("0.003"))
+            .withArgs(ethers.parseEther("0.004"))
         }
     )
   
